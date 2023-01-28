@@ -32,11 +32,5 @@ jobs:
         toolset: '14.2'
     - name: Build
       run: python build.py --version=${{ matrix.version }} --platform=${{ matrix.platform }} --libs=${{ matrix.lib }} --use-clang
-    #- name: Store packages
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: '8.4-${{ matrix.platform }}-${{ matrix.lib }}'
-    #    path: '*.nupkg'
-    #  continue-on-error: true
     - name: Publish on Nuget.org
       run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
