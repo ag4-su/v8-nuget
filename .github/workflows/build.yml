@@ -13,24 +13,7 @@ jobs:
         platform: ['x64']
         lib: ['shared'] #, 'monolith']
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Setup Python2
-      uses: actions/setup-python@v2
-      with:
-        python-version: '2.x'
-    - name: Setup NuGet
-      uses: nuget/setup-nuget@v1
-      with:
-        nuget-api-key-source: https://api.nuget.org/v3/index.json
-        nuget-api-key: ${{ secrets.NUGET_API_KEY }}
     - name: Enable Developer Command Prompt
       uses: ilammy/msvc-dev-cmd@v1.12.0
       with:
-        toolset: '17.0'
-    - name: Build
-      run: python build.py --version=${{ matrix.version }} --platform=${{ matrix.platform }} --libs=${{ matrix.lib }} --use-clang
-    - name: Publish on Nuget.org
-      run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
+        toolset: '14.34.31933'
