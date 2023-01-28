@@ -27,9 +27,9 @@ jobs:
         nuget-api-key-source: https://api.nuget.org/v3/index.json
         nuget-api-key: ${{ secrets.NUGET_API_KEY }}
     - name: Enable Developer Command Prompt
-      uses: ilammy/msvc-dev-cmd@v1.3.0
+      uses: ilammy/msvc-dev-cmd@v1.12.0
       with:
-        toolset: '14.2'
+        toolset: '17.0'
     - name: Build
       run: python build.py --version=${{ matrix.version }} --platform=${{ matrix.platform }} --libs=${{ matrix.lib }} --use-clang
     - name: Publish on Nuget.org
