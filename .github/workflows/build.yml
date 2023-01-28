@@ -26,4 +26,4 @@ jobs:
       with:
         toolset: '14.2'
     - name: Build
-      run: python build.py --version=${{ matrix.version }} --platform=${{ matrix.platform }} --libs=${{ matrix.lib }} --use-clang
+      run: python build.py --version=${{ matrix.version }} --platform=${{ matrix.platform }} --libs=${{ matrix.lib }}
